@@ -27,7 +27,7 @@
 <div class="content-container" id="issue-crud-container">
 
     <div class="content-body">
-        <h1>You've Got #if(!$issues || $issues.size()==0)<span style="color:red">NO</span>#end Issues!</h1>
+        <h1> #if(!$issues || $issues.size()==0)<span style="color:red">NO</span>#end Issues</h1>
         #if ($errors && $errors.size()>0)
             <div class="aui-message error shadowed crud-error">
                 #foreach($error in $errors)
