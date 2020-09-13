@@ -1,0 +1,5 @@
+A sample JIRA plugin that demonstrates how to create, read, update, and delete issues using JIRA 5.0 and later API.
+
+You can find documentation that describes this sample along with steps for creating it at:
+
+https://developer.atlassian.com/server/jira/platform/creating-a-jira-issue-crud-servlet-and-issue-search/
