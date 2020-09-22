@@ -55,6 +55,7 @@ public class IssueCRUD extends HttpServlet {
     private static final String EDIT_ISSUE_TEMPLATE = "/templates/edit.vm";
     private static final String PROJECT_NAME= "FJP";
 
+
     public IssueCRUD(IssueService issueService, ProjectService projectService,
                      SearchService searchService,
                      TemplateRenderer templateRenderer,
@@ -85,13 +86,13 @@ public class IssueCRUD extends HttpServlet {
                 templateRenderer.render(EDIT_ISSUE_TEMPLATE, context, resp.getWriter());
                 break;
             default:
-                List<Issue> issues = getIssues();
+                List<Issue> issues = getProjectIssues();
                 context.put("issues", issues);
                 templateRenderer.render(LIST_ISSUES_TEMPLATE, context, resp.getWriter());
         }
     }
 
-    private List<Issue> getIssues() {
+    private List<Issue> getProjectIssues() {
 
         ApplicationUser user = authenticationContext.getLoggedInUser();
         JqlClauseBuilder jqlClauseBuilder = JqlQueryBuilder.newClauseBuilder();
@@ -182,7 +183,7 @@ public class IssueCRUD extends HttpServlet {
         IssueService.CreateValidationResult result = issueService.validateCreate(user, issueInputParameters);
 
         if (result.getErrorCollection().hasAnyErrors()) {
-            List<Issue> issues = getIssues();
+            List<Issue> issues = getProjectIssues();
             context.put("issues", issues);
             context.put("errors", result.getErrorCollection().getErrors());
             resp.setContentType("text/html;charset=utf-8");

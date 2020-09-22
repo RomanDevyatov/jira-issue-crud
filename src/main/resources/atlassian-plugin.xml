@@ -22,4 +22,7 @@
     <description key="issue-crud.description">The Issue CRUD Plugin</description>
     <url-pattern>/issuecrud</url-pattern>
   </servlet>
+  <rest name="My Issue Get" i18n-name-key="my-issue-get.name" key="my-issue-get" path="/myissueget" version="1.0">
+    <description key="my-issue-get.description">The My Issue Get Plugin</description>
+  </rest>
 </atlassian-plugin>
